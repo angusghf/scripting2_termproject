@@ -5,29 +5,29 @@ import { useParams, Link } from "react-router-dom";
 function Details() {
 
     const { id } = useParams();
-    const [movie, setMovie] = useState(null);
+    const [dog, setdog] = useState(null);
 
     useEffect(() => {
 
-        // console.log("this is a movie page, the id in the URL is")
-        fetch(`https://ghibliapi.vercel.app/films/${id}`)
+        // console.log("this is a dog page, the id in the URL is")
+        fetch(`https://mhw-db.com/armor`)
             .then(response => response.json())
-            .then(dataObj => setMovie(dataObj));
+            .then(dataObj => setdog(dataObj));
 
     }, []);
 
-    if (!movie) {
+    if (!dog) {
         return <div>Loading...</div>
     }
 
     return (
         <div>
-        // <h1>This is a page about a movie!</h1>
-            <h1>{movie.title}</h1>
-            <p>{movie.description}</p>
-            <p><strong>Director:</strong>{movie.director}</p>
-            <p><strong>Producer:</strong>{movie.producer}</p>
-            <p><strong>Rotten Tomatoes Score:</strong>{movie.rt_score}</p>
+        // <h1>This is a page about a dog!</h1>
+            <h1>{dog.title}</h1>
+            <p>{dog.description}</p>
+            <p><strong>Director:</strong>{dog.director}</p>
+            <p><strong>Producer:</strong>{dog.producer}</p>
+            <p><strong>Rotten Tomatoes Score:</strong>{dog.rt_score}</p>
             <Link to="/">Return to List</Link>
         </div>
     )

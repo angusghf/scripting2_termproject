@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 function Favorites() {
 
-    const [savedMovies, setSavedMovies] = useState(() => {
+    const [saveddogs, setSaveddogs] = useState(() => {
 
         const savedFavs = localStorage.getItem("favs");
         return savedFavs ? JSON.parse(savedFavs) : [];
@@ -13,14 +13,14 @@ function Favorites() {
 
     useEffect( () => {
 
-        fetch("https://ghibliapi.vercel.app/films")
+        fetch("https://mhw-db.com/armor")
             .then(response => response.json())
-            .then(movies => {
-                const favMovies = movies.filter(allMovie => {
-                    return savedMovies.includes(allMovie.id);
+            .then(dogs => {
+                const favdogs = dogs.filter(alldog => {
+                    return saveddogs.includes(alldog.id);
                 })
 
-                setSavedMovies(favMovies);
+                setSaveddogs(favdogs);
 
             });
     }, []);
@@ -29,9 +29,9 @@ function Favorites() {
         <>
             <h1>These are my favorites!</h1>
             <ul>
-                {savedMovies.map( (movie) => (
-                    <li key={movie.id}>
-                        <Link to={`/movie${movie.id}`}>{movie.title}</Link>
+                {saveddogs.map( (dog) => (
+                    <li key={dog.id}>
+                        <Link to={`/dog${dog.id}`}>{dog.title}</Link>
                     </li>
                 ))}
             </ul>
