@@ -1,23 +1,34 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-
 function Details() {
-
     const { id } = useParams();
-    const [characters, setCharacters] = useState(null);
+    const [character, setCharacter] = useState(null);
+    const [favs, setFavs] = useState(() => {
+        const savedFavs = localStorage.getItem("favs");
+        return savedFavs ? JSON.parse(savedFavs) : [];
+    });
+
+    // Toggle favorite function
+    const toggleFav = (characterID) => {
+        let filteredFavs;
+        if (favs.includes(characterID)) {
+            filteredFavs = favs.filter((favId) => favId !== characterID);
+        } else {
+            filteredFavs = [...favs, characterID];
+        }
+
+        localStorage.setItem("favs", JSON.stringify(filteredFavs));
+        setFavs(filteredFavs);
+    };
 
     useEffect(() => {
-
-        // console.log("this is a movie page, the id in the URL is")
         fetch(`https://rickandmortyapi.com/api/character/${id}`)
-
             .then(response => response.json())
-            .then(data => setCharacters(data));
+            .then(data => setCharacter(data));
+    }, [id]);
 
-    }, []);
-
-    if (!characters) {
+    if (!character) {
         return <div>Loading...</div>
     }
 
@@ -25,12 +36,15 @@ function Details() {
         <div>
             <h1>This is a page about a R&M character!</h1>
             <div className="w-72 h-auto">
-                {/* Display character image and name */}
-                <img src={characters.image} alt={characters.name} />
+                <img src={character.image} alt={character.name} />
             </div>
-            {/* Descriptive info */}
-            <p><strong>Species:</strong> {characters.species}</p>
-            <p><strong>Status:</strong> {characters.status}</p>
+            <p><strong>Name:</strong> {character.name}</p>
+            <p><strong>Species:</strong> {character.species}</p>
+            <p><strong>Status:</strong> {character.status}</p>
+            <button onClick={() => toggleFav(character.id)}>
+                {favs.includes(character.id) ? "Remove Fav" : "Add Fav"}
+            </button>
+            <br />
             <Link to="/">Return to List</Link>
         </div>
     )
