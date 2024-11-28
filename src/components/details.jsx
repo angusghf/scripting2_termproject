@@ -35,7 +35,7 @@ function Details() {
     }, [id]);
 
     if (!character) {
-        return <div>Loading...</div>
+        return <div className="text-center align-center justify-center text-5xl text-red-500">Loading!</div>
     }
 
     return (
