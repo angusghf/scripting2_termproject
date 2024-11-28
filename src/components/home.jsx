@@ -61,25 +61,36 @@ function Home() {
     return (
         <div>
             <Navbar />
-            <h1>Rick and Morty Characters</h1>
-            <input
-                type="text"
-                placeholder="Search for a character"
-                value={searchTerm}
-                onChange={(event) => setSearchTerm(event.target.value)}
-            />
-            <button onClick={searchCharacters}>Search</button>
-            <ul>
+            <div className="text-center align-center justify-center pb-12">
+                <h1 className="font-bold text-4xl pb-7">
+                    Search character
+                </h1>
+                <input
+                    type="text"
+                    className="bg-blue-200 px-2"
+                    placeholder="Search for a character"
+                    value={searchTerm}
+                    onChange={(event) => setSearchTerm(event.target.value)}
+                />
+                <button className="bg-slate-300 px-2 rounded border border-black " onClick={searchCharacters}>Search</button>
+            </div>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
                 {characters.map((character) => (
                     <li key={character.id}>
-                        <Link to={`/character/${character.id}`}>{character.name}</Link>
-                        <button onClick={() => toggleFav(character.id)}>
-                            {favs.includes(character.id) ? "Remove Fav" : "Add Fav"}
-                        </button>
+                        <div className="bg-slate-100 shadow-md rounded-lg overflow-hidden p-4 flex flex-col items-center gap-y-2">
+                            <img
+                                src={character.image}
+                                alt={character.name}
+                                className="w-32 h-32 object-cover rounded-full mb-4"
+                            />
+                            <Link to={`/character/${character.id}`} className="hover:text-green-500">{character.name}</Link>
+                            <button className="bg-pink-600 rounded p-2 text-white" onClick={() => toggleFav(character.id)}>
+                                {favs.includes(character.id) ? "Remove Fav" : "Add Fav"}
+                            </button>
+                        </div>
                     </li>
                 ))}
             </ul>
-            <Link to="/favorites">View Favorites</Link>
             <Footer />
         </div>
     );
