@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import '../index.css';
 
+import Navbar from "./navbar";
+import Footer from "./footer";
 
 function Home() {
 
@@ -47,7 +50,7 @@ function Home() {
         fetch("https://rickandmortyapi.com/api/character")
             .then((response) => response.json())
             .then((data) => {
-                 // Array of characters
+                // Array of characters
                 setCharacters(data.results);
             })
             .catch((error) => {
@@ -57,6 +60,7 @@ function Home() {
 
     return (
         <div>
+            <Navbar />
             <h1>Rick and Morty Characters</h1>
             <input
                 type="text"
@@ -75,6 +79,8 @@ function Home() {
                     </li>
                 ))}
             </ul>
+            <Link to="/favorites">View Favorites</Link>
+            <Footer />
         </div>
     );
 }

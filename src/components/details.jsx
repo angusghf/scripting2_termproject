@@ -25,7 +25,10 @@ function Details() {
     useEffect(() => {
         fetch(`https://rickandmortyapi.com/api/character/${id}`)
             .then(response => response.json())
-            .then(data => setCharacter(data));
+            .then(data => setCharacter(data))
+            .catch((error) => {
+                console.log("Error Fetching Characters!");
+            });
     }, [id]);
 
     if (!character) {

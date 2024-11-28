@@ -24,7 +24,7 @@ function Favorites() {
             <ul>
                 {savedCharacters.map((character) => (
                     <li key={character.id}>
-                        <Link to={`/characters/${character.id}`}>{character.name}</Link>
+                        <Link to={`/character/${character.id}`}>{character.name}</Link>
                     </li>
                 ))}
             </ul>
