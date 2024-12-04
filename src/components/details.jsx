@@ -47,7 +47,7 @@ function Details() {
         // fetching our information from the api!
         // also fetches the id from the url
         fetch(`https://rickandmortyapi.com/api/character/${id}`)
-            // parsing through the json response
+            // reading through the json response
             .then(response => response.json())
             // we then store the data in the character state
             .then(data => setCharacter(data))
