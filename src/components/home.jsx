@@ -100,7 +100,9 @@ function Home() {
             </div>
             {/* styling the list of items and making it responsive */}
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
+                {/* iterates over an array and transforms its elements into jsx components */}
                 {characters.map((character) => (
+                    // lists out the characters and their IDs so React doesn't get confused
                     <li key={character.id}>
                         <div className="bg-slate-100 shadow-md rounded-lg overflow-hidden p-4 flex flex-col items-center gap-y-2">
                             <img
