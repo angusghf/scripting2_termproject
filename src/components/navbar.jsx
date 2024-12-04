@@ -11,10 +11,10 @@ function Navbar() {
             {/* creating our unoredered list of items */}
             <ul className="list-none flex m-0 p-0  pb-8 justify-evenly">
                 <Link to="/">
-                    <a href="#home" className="text-white text-2xl no-underline hover:text-sky-300 rounded-lg">Return Home</a>
+                    <a href="#home" className="text-green-300 text-2xl no-underline hover:text-sky-300 rounded-lg">Character List</a>
                 </Link>
                 <Link to="/favorites">
-                    <a href="#about" className="text-white text-2xl no-underline hover:text-sky-300 rounded-lg">Favorites</a>
+                    <a href="#about" className="text-green-300 text-2xl no-underline hover:text-sky-300 rounded-lg">Favorites</a>
                 </Link>
             </ul>
         </nav>
