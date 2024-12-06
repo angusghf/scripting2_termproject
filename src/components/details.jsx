@@ -55,7 +55,7 @@ function Details() {
                 // and if there is an error, we can log it into the console to see if there are any issues from fetching the errors
                 console.log("Error Fetching Characters!");
             });
-    }, [id]);
+    }, []);
 
     // making it so that if the character still hasn't loaded, it'll display a text 
     if (!character) {
