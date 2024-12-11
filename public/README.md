@@ -26,4 +26,4 @@
 <!-- There was a lot of trial and error, especially with the API (as they are not all the same), which was quite frustrating -->
 <!-- On top of that, the lines of codes were quite difficult to understand -->
 <!-- When coupling the different apis, their initializations, with the long lines of codes, it made it a very challenging project -->
-<!-- Moving forward, a few key things I would personally note is to pay more attention to the lines of code and what does what (this is why there's lots of comments, for me to go back and understand) and to look more into different APIS and how they can be applied and intialized in different scenarios -->
+<!-- Moving forward, a few key things I would personally note is to pay more attention to the lines of code and what does what (this is why there's lots of comments, for me to go back and understand) and to look more into different APIS and how they can be applied and intialized in different scenarios -->`
